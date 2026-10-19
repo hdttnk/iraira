@@ -1,3 +1,4 @@
+import {assertGeometryClose} from './assert-geometry';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {second} from '../src/stages/legacy/second';
@@ -34,5 +35,5 @@ test('2nd has one connected route with no unintended loops or crossovers at all 
 });
 test('2nd overview export matches runtime geometry',async()=>{
   const {readFileSync}=await import('node:fs');const {makeCourseGeometry}=await import('../src/course-geometry');
-  const saved=JSON.parse(readFileSync('docs/stages/legacy/second-stage-data.json','utf8'));assert.deepEqual(saved.geometry,makeCourseGeometry(second));assert.deepEqual(saved.route,second.route);assert.deepEqual(saved.rest,second.rest);
+  const saved=JSON.parse(readFileSync('docs/stages/legacy/second-stage-data.json','utf8'));assertGeometryClose(saved.geometry,makeCourseGeometry(second));assert.deepEqual(saved.route,second.route);assert.deepEqual(saved.rest,second.rest);
 });

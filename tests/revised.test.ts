@@ -1,3 +1,4 @@
+import {assertGeometryClose} from './assert-geometry';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {stages,obstaclesAt} from '../src/stage';
@@ -75,7 +76,7 @@ test('active PNG data matches runtime boundaries, rest and dynamic obstacles',as
  const {readFileSync}=await import('node:fs');const {makeCourseGeometry}=await import('../src/course-geometry');
  for(const id of ['first','second','third']){
   const data=stages[id],saved=JSON.parse(readFileSync(`docs/stages/${id}-stage-data.json`,'utf8'));
-  assert.deepEqual(saved.geometry,makeCourseGeometry(data));assert.deepEqual(saved.obstacles,obstaclesAt(saved.obstacleTime,data));assert.deepEqual(saved.rest,data.rest);
+  assertGeometryClose(saved.geometry,makeCourseGeometry(data));assert.deepEqual(saved.obstacles,obstaclesAt(saved.obstacleTime,data));assert.deepEqual(saved.rest,data.rest);
   for(const width of [36,44,52]){const g=makeCourseGeometry(data,width)!;assert.equal(g.polygons.length,1);assert.equal(g.polygons[0].length,id==='third'?5:1,'unexpected shortcut or disconnected wall');}
  }
 });

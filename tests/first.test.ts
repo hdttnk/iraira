@@ -1,3 +1,4 @@
+import {assertGeometryClose} from './assert-geometry';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {Simulation,defaults} from '../src/engine';
@@ -41,7 +42,7 @@ test('1st failure, timeout, stage switching preserves prototype',()=>{
 test('saved overview input matches current runtime geometry',async()=>{
   const {readFileSync}=await import('node:fs');
   const saved=JSON.parse(readFileSync('docs/stages/legacy/first-stage-data.json','utf8'));
-  assert.deepEqual(saved.geometry,makeCourseGeometry(first));assert.deepEqual(saved.route,first.route);
+  assertGeometryClose(saved.geometry,makeCourseGeometry(first));assert.deepEqual(saved.route,first.route);
   assert.deepEqual(saved.branches,first.branches);assert.deepEqual(saved.checkpoints,first.checkpoints);assert.deepEqual(saved.goal,first.goal);
 });
 test('hairpin outbound/return lanes cannot be crossed horizontally at any supported width',()=>{

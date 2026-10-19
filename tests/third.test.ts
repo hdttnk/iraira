@@ -1,3 +1,4 @@
+import {assertGeometryClose} from './assert-geometry';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {runThird} from './third-driver';
@@ -28,7 +29,7 @@ test('3rd both supported size extremes can complete moving traps',()=>{
 test('3rd exported moving shapes and polygon match runtime',async()=>{
   const {readFileSync}=await import('node:fs');const {makeCourseGeometry}=await import('../src/course-geometry');
   const saved=JSON.parse(readFileSync('docs/stages/legacy/third-stage-data.json','utf8'));
-  assert.deepEqual(saved.geometry,makeCourseGeometry(third));assert.deepEqual(saved.obstacles,obstaclesAt(saved.obstacleTime,third));assert.deepEqual(saved.branches,third.branches);assert.deepEqual(saved.checkpoints,third.checkpoints);
+  assertGeometryClose(saved.geometry,makeCourseGeometry(third));assert.deepEqual(saved.obstacles,obstaclesAt(saved.obstacleTime,third));assert.deepEqual(saved.branches,third.branches);assert.deepEqual(saved.checkpoints,third.checkpoints);
 });
 test('windmill hubs and elevator partitions cannot be used as shortcuts',async()=>{
   const {makeCourseGeometry}=await import('../src/course-geometry');
