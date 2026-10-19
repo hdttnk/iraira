@@ -1,0 +1,10 @@
+import {writeFileSync,mkdirSync} from 'node:fs';
+import {makeCourseGeometry} from '../src/course-geometry';
+import {stages,obstaclesAt} from '../src/stage';
+mkdirSync('docs/stages',{recursive:true});
+const id=process.argv[2]??'first';
+const data=stages[id];if(!data||!data.route.length)throw new Error('Unknown vector stage');
+const obstacleTime=Number(process.argv[3]??0);
+if(!Number.isFinite(obstacleTime)||obstacleTime<0)throw new Error('Invalid obstacle time');
+writeFileSync(`docs/stages/${id}-stage-data.json`,JSON.stringify({...data,geometry:makeCourseGeometry(data),obstacleTime,obstacles:obstaclesAt(obstacleTime,data)},null,2));
+console.log(`Exported ${id} runtime geometry`);

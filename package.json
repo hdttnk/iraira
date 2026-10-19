@@ -1,0 +1,30 @@
+{
+  "name": "precision-course-v01",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "dev:lan": "vite --host 0.0.0.0",
+    "test:browser": "node tests/browser.mjs",
+    "test:browser:first": "node tests/browser-first.mjs",
+    "export:stage": "node --import tsx scripts/export-stage.ts",
+    "test:browser:second": "node tests/browser-second.mjs",
+    "test:browser:third": "node tests/browser-third.mjs",
+    "test:browser:touch": "node tests/browser-touch-guards.mjs"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0",
+    "polygon-clipping": "^0.15.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.0"
+  }
+}

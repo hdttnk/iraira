@@ -1,0 +1,30 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#151515;color:#fff;font-family:ui-monospace,monospace;overscroll-behavior:none}body{display:flex;justify-content:center}button,select,input{font:inherit;color:#fff;background:#171717;border:1px solid #666;border-radius:5px;padding:10px;min-height:44px}button{cursor:pointer}button:active{background:#444}#app{width:100%;max-width:560px;height:100dvh;background:#000;position:relative;display:flex;flex-direction:column;overflow:hidden;padding-top:env(safe-area-inset-top)}header{height:64px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;border-bottom:1px solid #333}header span{font-size:13px;letter-spacing:2px}small{font-size:10px;color:#999}#timer{font-size:27px;font-variant-numeric:tabular-nums}#game{flex:1;min-height:0;position:relative;overflow:hidden}canvas{display:block}footer{height:190px;flex-shrink:0;border-top:1px solid #292929;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:env(safe-area-inset-bottom);background:#080808}footer span{font-size:10px;color:#999;margin-top:10px}#stick{width:124px;height:124px;border:1px solid #777;border-radius:50%;position:relative;touch-action:none;background:radial-gradient(circle,transparent 32%,#ffffff09 33%,#ffffff09 34%,transparent 35%);user-select:none}#knob{width:44px;height:44px;position:absolute;left:39px;top:39px;background:#ddd;border-radius:50%;pointer-events:none}#retry{position:absolute;right:12px;top:12px;font-size:11px;padding:8px}#status{position:absolute;top:calc(76px + env(safe-area-inset-top));left:16px;font-size:11px;pointer-events:none;color:#bbb;background:#000c;padding:3px 5px;border-radius:3px}#notice{position:absolute;z-index:2;top:27%;left:8%;width:84%;padding:22px;text-align:center;background:#090909ed;border:1px solid #666;border-radius:8px}h1{font-size:24px;letter-spacing:5px}p{font-size:13px;line-height:1.8}#start{background:#fff;color:#000;min-width:180px;font-weight:bold}.hint{color:#aaa;font-size:11px}dialog{width:calc(100% - 28px);max-width:430px;max-height:85dvh;background:#101010;color:#fff;border:1px solid #777;border-radius:8px;padding:20px}dialog::backdrop{background:#000a}h2{font-size:17px}label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0;font-size:12px}label input:not([type=checkbox]),select{width:55%;min-width:0}label.check{justify-content:flex-start}input[type=checkbox]{width:22px;height:22px;accent-color:#fff}.pair{display:flex;gap:10px}.pair>*{flex:1}.pair label{min-width:0}.pair input{width:65%!important}[hidden]{display:none!important}@media(max-height:650px){footer{height:155px}#stick{transform:scale(.85)}footer span{margin-top:-1px}#notice{top:20%;padding:14px}#notice .hint{display:none}}
+#skipPreview{position:absolute;z-index:3;top:calc(105px + env(safe-area-inset-top));right:12px;font-size:11px;background:#111e}header span{letter-spacing:1px;font-size:12px}
+/* Safari needs prefixed selection/callout controls; keep editing in settings. */
+html,body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#app,#app *{touch-action:none}
+#panel{touch-action:pan-y}
+#panel input,#panel select,#panel textarea{-webkit-user-select:text;user-select:text;font-size:16px}
+
+#panel button{touch-action:manipulation}
+/* Copper-wire material study: scoped to the trial course, with no control-size changes. */
+#app[data-skin=modern]{background:#050608;color:#f3e9df;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+#app[data-skin=modern] header{background:linear-gradient(120deg,#181513,#0c0b0a);border-bottom:1px solid #d7a16f28;box-shadow:0 4px 20px #0004;z-index:1}
+#app[data-skin=modern] header span{font-size:15px;font-weight:750;letter-spacing:2px;color:#f5cd9e}
+#app[data-skin=modern] header small{display:block;margin-top:4px;font-size:9px;font-weight:500;letter-spacing:1px;color:#a39181}
+#app[data-skin=modern] #timer{font-size:25px;letter-spacing:-.8px;font-weight:650;color:#fff0df}
+#app[data-skin=modern] #timer::before{content:'TIME LEFT';display:block;font-size:8px;letter-spacing:2px;font-weight:500;color:#9c8976;text-align:center;margin-bottom:1px}
+#app[data-skin=modern] button{border-color:#97724f68;border-radius:12px;background:#1d1915;color:#ebdccd;box-shadow:inset 0 1px #ffffff07;font-size:12px}
+#app[data-skin=modern] button:active{background:#3b2c20;border-color:#f2c58c}
+#app[data-skin=modern] footer{background:radial-gradient(ellipse at 50% 15%,#211b16,#0c0b0a 70%);border-top:1px solid #d7a16f2a}
+#app[data-skin=modern] footer span{color:#a18e7a;letter-spacing:1px;font-size:10px}
+#app[data-skin=modern] #stick{border-color:#b88a5e6b;box-shadow:inset 0 0 25px #eeb87b08,0 0 0 7px #eeb87b03;background:radial-gradient(circle,transparent 32%,#eec28a19 33%,#eec28a19 34%,transparent 35%)}
+#app[data-skin=modern] #knob{background:radial-gradient(circle at 35% 25%,#fff1dc,#d6b28a 68%,#8e6745);box-shadow:0 4px 14px #0008,inset 0 1px 2px #ffffffab;border:1px solid #ffe0b5}
+#app[data-skin=modern] #status{background:#100e0bde;border:1px solid #735b414d;border-radius:6px;color:#b6a28c;font-size:10px;backdrop-filter:blur(8px)}
+#app[data-skin=modern] #notice{background:linear-gradient(145deg,#241c15f7,#0c0b09fa);border:1px solid #d5a16e47;border-radius:22px;box-shadow:0 20px 70px #0008,inset 0 1px #ffffff0c;backdrop-filter:blur(14px);padding:28px 20px}
+#app[data-skin=modern] #notice::before{content:'STEADY HAND / STAY CLEAR';font-size:8px;letter-spacing:2px;color:#d7a16f}
+#app[data-skin=modern] h1{font-size:34px;letter-spacing:5px;font-weight:750;margin:16px 0;color:#fff0db}
+#app[data-skin=modern] #message{color:#c7b29c;font-size:13px}
+#app[data-skin=modern] #start{background:#e4ba88;color:#271b10;border-color:#ffe0b4;font-size:14px;border-radius:12px;box-shadow:0 5px 20px #d7a16f1a;min-height:48px}
+#app[data-skin=modern] .hint{color:#a18e7a}
+@media(max-height:650px){#app[data-skin=modern] #notice{padding:16px}#app[data-skin=modern] h1{font-size:27px;margin:10px}}
